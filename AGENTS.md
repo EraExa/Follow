@@ -80,6 +80,11 @@ This document defines the conceptual and programmatic contract for the **Quantum
 - Interval semantics use **wrapping circular** definitions.
 - `TENSOR::eval()` returns a `MODULATION` with a **well-defined** `BASE` (permuted by operator) and `REAL` (interval-composed).
 
+## Feature-gates
+
+ - io/hdf5 → use hdf5 crate (optional) for LIGO frames; off by default.
+ - io/fits → use fitsio for JWST FITS; off by default.
+
 ## Outputs
 
 Outputs the `ATOM`-Values above, in a **COMPLETELY STAND-ALONE** (containing *all* necessary definitions) `output.qge`-file containing a custom JSON-Object with versioning, the Values specified of which use this pseudo-form:

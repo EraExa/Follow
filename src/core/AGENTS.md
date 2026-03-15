@@ -1,6 +1,11 @@
 
 # CORE LIBRARY of the QUANTUM GRAVITY ENGINE
 
+TODO:
+
+ - CORE/BASIC: Implement basic core functionality for these files, with a `*`-Type (Replace `*` with Name of Type).
+ - ADDITIONAL: Add `U8_*`-, `U16_*`-, `U32_*`- and `U64_*`-Types to ALL OF THESE CORE LIBRARY FILES (Replace `*` with Name of Type).
+
 Contains:
  - *`basum.rs`*: A Minimal `string` to `isize`-Wrapper Library from `strings` on the form:
 	- `"^[+-][1-9]?[0-9]*$"`; Stores Number Bases/Exponents as an `isize`.
@@ -27,3 +32,7 @@ Contains:
  - *`atom.rs`*: The Fully-Fledged Atomic Unit `{ Core: MODULATION[], Interval: (MODULATION, MODULATION)[], Base: TENSOR[], Op: Operator }` for Arbitrary Symbolic Operator (by-default: OreOps);
 	- Implementation of the Whole Core Library in one Atomic Unit.
 	- Uses `modulation.rs`, `tensor.rs`, `ops.rs`.
+
+TODO - LUTs:
+ - *`u8lut_extended.rs`*: tables for sin/cos over 0..255, trig LUTs (RA/Dec → XYZ)
+ - *`../util/zorder.rs`*: crate::utils::zorder.rs for morton Z-ordering of (x,y,z) brick coordinates using bit-interleaving via LUTs, Z-order for bricks (u8-safe).
