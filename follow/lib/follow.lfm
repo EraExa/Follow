@@ -1,0 +1,151 @@
+object Form1: TForm1
+  Left = -3129
+  Height = 1080
+  Top = 179
+  Width = 1920
+  Caption = 'Form1'
+  ClientHeight = 1080
+  ClientWidth = 1920
+  LCLVersion = '4.6.0.0'
+  OnShow = FormShow
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 1920
+    Caption = 'ToolBar1'
+    TabOrder = 0
+  end
+  object LeftBox: TGroupBox
+    Left = 0
+    Height = 783
+    Top = 36
+    Width = 385
+    Align = alLeft
+    ClientHeight = 763
+    ClientWidth = 381
+    TabOrder = 1
+    object WorkspaceTree: TTreeView
+      Left = 0
+      Height = 763
+      Top = 0
+      Width = 381
+      Align = alClient
+      TabOrder = 0
+      OnChange = WorkspaceTreeChange
+    end
+  end
+  object SplitterLeft: TSplitter
+    Left = 385
+    Height = 783
+    Top = 36
+    Width = 5
+  end
+  object RightBox: TGroupBox
+    Left = 1541
+    Height = 783
+    Top = 36
+    Width = 379
+    Align = alRight
+    ClientHeight = 763
+    ClientWidth = 375
+    TabOrder = 2
+    object PropScrollBox: TScrollBox
+      Left = 0
+      Height = 763
+      Top = 0
+      Width = 375
+      HorzScrollBar.Page = 1
+      VertScrollBar.Page = 1
+      Align = alClient
+      TabOrder = 0
+    end
+  end
+  object SplitterRight: TSplitter
+    Left = 1536
+    Height = 783
+    Top = 36
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object MainGroup: TPageControl
+    Left = 390
+    Height = 783
+    Top = 36
+    Width = 1146
+    ActivePage = TabSheetEditor
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 3
+    OnChange = MainGroupChange
+    object TabSheetEditor: TTabSheet
+      Caption = 'Editor'
+    end
+    object TabSheetPreview: TTabSheet
+      Caption = 'Preview'
+      ClientHeight = 755
+      ClientWidth = 1138
+      object PreviewImage: TImage
+        Left = 0
+        Height = 755
+        Top = 0
+        Width = 1138
+        Align = alClient
+        Center = True
+        Proportional = True
+        Stretch = True
+      end
+    end
+  end
+  object SplitterBottom: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 819
+    Width = 1920
+    Align = alBottom
+    ResizeAnchor = akBottom
+  end
+  object Console: TGroupBox
+    Left = 0
+    Height = 256
+    Top = 824
+    Width = 1920
+    Align = alBottom
+    Caption = 'Console'
+    TabOrder = 4
+  end
+  object MainMenu1: TMainMenu
+    Left = 400
+    Top = 100
+    object MenuItemFile: TMenuItem
+      Caption = 'File'
+    end
+    object MenuItemEdit: TMenuItem
+      Caption = 'Edit'
+    end
+    object MenuItemView: TMenuItem
+      Caption = 'View'
+      object MenuItemToggleEditor: TMenuItem
+        AutoCheck = True
+        Caption = 'Editor Tab'
+        Checked = True
+        OnClick = MenuItemToggleEditorClick
+      end
+      object MenuItemTogglePreview: TMenuItem
+        AutoCheck = True
+        Caption = 'Preview Tab'
+        Checked = True
+        OnClick = MenuItemTogglePreviewClick
+      end
+    end
+  end
+  object RenderTimer: TTimer
+    Enabled = False
+    Interval = 33
+    OnTimer = RenderTimerTimer
+    Left = 450
+    Top = 100
+  end
+end

@@ -1,0 +1,45 @@
+object PromptForm: TPromptForm
+  Left = 500
+  Height = 150
+  Top = 300
+  Width = 400
+  Caption = 'Workspace Selection'
+  ClientHeight = 150
+  ClientWidth = 400
+  Position = poMainFormCenter
+  LCLVersion = '4.6.0.0'
+  object LabelTitle: TLabel
+    Left = 20
+    Height = 20
+    Top = 20
+    Width = 360
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Follow IDE Workspace'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object ButtonNew: TButton
+    Left = 50
+    Height = 40
+    Top = 70
+    Width = 140
+    Caption = 'Create New'
+    TabOrder = 0
+    OnClick = ButtonNewClick
+  end
+  object ButtonLoad: TButton
+    Left = 210
+    Height = 40
+    Top = 70
+    Width = 140
+    Caption = 'Load Existing'
+    TabOrder = 1
+    OnClick = ButtonLoadClick
+  end
+  object SelectDirectoryDialog: TSelectDirectoryDialog
+    Left = 180
+    Top = 10
+  end
+end
