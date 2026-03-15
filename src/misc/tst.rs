@@ -1,15 +1,34 @@
 
-use crate::misc::bbst;
+// TODO: Implement Serde::Serialize/Deserialize for *`/memory/`*-Loading/Saving.
+
+use crate::misc::bbst::BBST;
+use crate::misc::kd::BBST;
+use crate::misc::scheduler::timingwheel::TimingWheels;
+use crate::misc::scheduler::calendarqueue::CalendarQueue;
+use crate::math::minkowski::OrigoDelta;
 
 #[derive(Default, Clone, Debug)]
-pub struct Leaf { pub tree: BBST }
+pub struct Leaf { pub tree: BBST<AtomNode> }
 
 #[derive(Clone, Debug)]
 pub struct Node {
+    pub id: usize,
+    pub root_id: Option<usize>,
+    pub parent_id: Option<usize>,
+    pub seed: usize,
+    pub tickrate: usize,
+    pub name: String,
+	
     pub pre: Leaf,
     pub peri: Leaf,
     pub post: Leaf,
-    pub origo_delta: crate::math::minkowski::OrigoDelta,
+	
+    pub near_queue: TimingWheels,
+    pub far_queue: CalendarQueue,
+	
+    pub origo_delta: OrigoDelta,
+	
+    pub enabled: bool,
 }
 
 impl Default for Node {
@@ -25,6 +44,30 @@ pub struct TST {
 }
 
 impl TST {
+	/*
+	fn apply_boost(ct_xyz: &mut [f64; 4], boost: &Biquaternion<StrictInterval>) {
+        let to_beta = |s: &StrictInterval| (s.to_f64() - 128.0) / 128.0;
+        let bx = to_beta(&boost.x);
+        let by = to_beta(&boost.y);
+        let bz = to_beta(&boost.z);
+        let b2 = bx*bx + by*by + bz*bz;
+        if b2 >= 0.9999 { return; }
+        let g = 1.0 / (1.0 - b2).sqrt();
+        let t = ct_xyz[0];
+        let x = ct_xyz[1];
+        let y = ct_xyz[2];
+        let z = ct_xyz[3];
+        let b_dot_r = bx*x + by*y + bz*z;
+        ct_xyz[0] = g * (t - b_dot_r);
+        if b2 > 1e-9 {
+            let k = (g - 1.0) / b2;
+            ct_xyz[1] = x + k * b_dot_r * bx - g * t * bx;
+            ct_xyz[2] = y + k * b_dot_r * by - g * t * by;
+            ct_xyz[3] = z + k * b_dot_r * bz - g * t * bz;
+        }
+    }
+	*/
+	
     /// One iteration step over all nodes: PRE -> PERI -> POST
     pub fn iterate_step(&self) -> Vec<Animated> {
         let mut out = Vec::new();
