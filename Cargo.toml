@@ -1,0 +1,8 @@
+[package]
+name = "quantum-gravity-engine"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+description = "Produces Temporally-animated Volumetric Renders of Cosmological Spacetime from AdvancedLIGO-datasets and James Webb-datasets."
+repository = ""
+authors = ["Axel Selmer-Anderssen <era.exa@outlook.com>"]
