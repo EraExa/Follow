@@ -1,7 +1,7 @@
 
 # SRC (SOURCE) LIBRARY of the FOLLOW™-FRAMEWORKS
 
-Source for the Follow™-Frameworks - Quantum Gravity Turing-Computing & Communication Observation/Storage/Learning/Operational Engine.
+Standalone Executables - Source Codes for the Follow™-Frameworks - Quantum Gravity Turing-Computing & Communication Observation/Storage/Learning/Operational Engine.
 Is a Implementation of the Quantum Gravity Engine with "Diffeomorphic Quantum Gravity" & "Theory of Everything is Now" as its Quantum Gravity Theory of Everything.
 
 Contains:

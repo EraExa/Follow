@@ -1,6 +1,8 @@
 
 # MISC LIBRARY of the QUANTUM GRAVITY ENGINE
 
+TODO - Genetic Engineering & Reservoir Computing Library: *`/gen/`*, *`/reservoir/`* which uses the *`../io/memory.rs`*-Memory Offloading Library.
+
 Contains:
  - *`redblack.rs`*: Contains Balancing-structure for BBSTs;
 	- Used in `bbst.rs`.

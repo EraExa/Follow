@@ -1,7 +1,9 @@
 
-use crate::quantum::quantum_events;
-use crate::misc::omega;
-use crate::misc::ecc;
+use crate::quantum::quantum_events::*;
+use crate::misc::tst::TSTGraph;
+use crate::misc::omega::OmegaState;
+use crate::misc::ecc::*;
+use crate::math::fusion::fusion_policy_lut;
 
 // Ω-step -> event -> render
 fn process_step(mut state: OmegaState, grids: &mut VoxelGrid, TST: &mut TSTGraph) {
@@ -19,7 +21,7 @@ fn process_step(mut state: OmegaState, grids: &mut VoxelGrid, TST: &mut TSTGraph
     // 3) Control scalars
     let ecc_err = ecc_error_lut(state.recent_fail_rate_u8());
     let geo_err = geo_error_lut(state.local_fiber_mismatch_u8());
-    let err    = sat_add(ecc_err, geo_err);
+    let err     = sat_add(ecc_err, geo_err);
 
     let info_upd = info_update_lut(&corrected);
     let hol_upd  = holonomy_update_lut(state.holonomy_context_u8());
@@ -27,7 +29,7 @@ fn process_step(mut state: OmegaState, grids: &mut VoxelGrid, TST: &mut TSTGraph
 
     let T        = div_u8(upd, err);					// via LUT (0-safe)
 
-    // 4) Spatial mapping (IFS-like)
+    // 4) Spatial mapping (Iterated Function System - IFS-like)
     let (x,y,z)  = spatial_map_lut(&corrected, state.embedding_state_u8());
     let qevt = QEvent {
         omega: OmegaStep { n: state.n, delta },

@@ -1,6 +1,9 @@
 
 # IO LIBRARY of the QUANTUM GRAVITY ENGINE
 
+TODO - Core:
+ - *`/memory/`* & *`memory.rs`*: Defines Heap / Stack / Swap / Stream Functionalites for Memory Offloading.
+
 TODO - Features:
  - *`qge_follow.rs`*: Creates New and/or Handles Editing of `.fwp`-, `.fwh`-, `.fwb`-, `.fws`-, `.qge`-files.
  - *`hdf5.rs`*: Create Crate-Wrapper → use hdf5 crate for LIGO frames; off by default → *`qge_follow.rs`*::Files/Project/Header/Body/Source.

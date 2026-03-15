@@ -229,7 +229,6 @@ This yields a planetary-scale, real-time, fractal spacetime reconstruction.
  - Fractal cosmology viewer
  - Planetary quantum field overlays
 
-
 ## 7. Conclusion
 
 This whitepaper presents a fundamentally new computational ontology for physics:

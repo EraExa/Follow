@@ -23,7 +23,7 @@ Contains:
 	- Uses `interval.rs` and `base.rs`.
  - *`ore.rs`*: Implementation of `OreOps` - An Ore-Algebraic Skew-Polynomial Field-Extension Library for usage as Operators;
 	- Used in `ops.rs`.
- - *`ops.rs`*: Implementation of Strictly Infix-Only Arbitrary Symbolic Operators or Symbolic OreOps from `ore.rs`;
+ - *`ops.rs`*: Implementation of Strictly Infix-Only - Arbitrary Symbolic Operators or Symbolic OreOps from `ore.rs`;
 	- Uses `modulation.rs` and `ore.rs`.
  - *`expr.rs`*: A Symbolic Expression-Library (specification only, implementation handled by `tensor.rs`);
 	- For usage in `tensor.rs` Tensor Networks.
